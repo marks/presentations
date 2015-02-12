@@ -37,8 +37,8 @@
 
 ## Finding Data
 
-### [https://communities.socrata.com/catalogs/idhack](https://communities.socrata.com)
-### [https://communities.socrata.com/catalogs/idhack](/catalogs/idhack/)
+### [https://communities.socrata.com](https://communities.socrata.com/catalogs/idhack/)
+### [/catalogs/idhack](https://communities.socrata.com/catalogs/idhack/)
 
 ---
 
