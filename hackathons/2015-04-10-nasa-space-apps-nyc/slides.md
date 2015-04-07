@@ -17,7 +17,7 @@
 
 <img class="fullscreen-img" src="/presentations/img/city.jpg" />
 
-<h2>We believe that <span class="toy-store-blue">greater access</span> to <span class="blushing-salmon"> data</span> makes this universe <span class="golden">better places to live</span></h2>
+<h2>We believe that <span class="toy-store-blue">greater access</span> to <span class="blushing-salmon"> data</span> makes this universe <span class="golden">a better places to live</span></h2>
 
 ---
 
