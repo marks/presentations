@@ -17,13 +17,13 @@
 
 <img class="fullscreen-img" src="/presentations/img/city.jpg" />
 
-<h2>We believe that <span class="toy-store-blue">greater access</span> to <span class="blushing-salmon">public data</span> makes cities <span class="golden">better places to live</span></h2>
+<h2>We believe that <span class="toy-store-blue">greater access</span> to <span class="blushing-salmon"> data</span> makes this universe <span class="golden">better places to live</span></h2>
 
 ---
 
 <img class="fullscreen-img" src="/presentations/img/city_hall.jpg" />
 
-<h2>We make it <span class="toy-store-blue">easy</span> for <span class="blushing-salmon">governments</span> to share their public data with <span class="golden">civic developers</span></h2>
+<h2>We make it <span class="toy-store-blue">easy</span> for <span class="blushing-salmon">organizations</span> to share their public data with <span class="golden">developers</span></h2>
 
 ===
 
