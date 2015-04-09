@@ -35,9 +35,11 @@
 
 ## Finding Data 
 <br />
-### `==>` [data.nasa.gov](https://data.nasa.gov/) `<==`
+### [data.nasa.gov](https://data.nasa.gov/)
 <br />
 ### [spaceappschallenge.org](https://2015.spaceappschallenge.org/challenge/)
+Clean water mapping, forest monitor mapping, airburst data visualization,  transient watch challenges, and data treasure hunting
+<br /><br />
 ### [dev.socrata.com/data](http://dev.socrata.com/data/)
 
 ---
