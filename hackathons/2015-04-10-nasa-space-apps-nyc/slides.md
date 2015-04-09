@@ -25,6 +25,78 @@
 
 <h2>We make it <span class="toy-store-blue">easy</span> for <span class="blushing-salmon">organizations</span> to share their public data with <span class="golden">developers</span></h2>
 
+
+===
+
+# So what is an API anyway?
+
+![APIs](../../img/Bubble_blue.tif.png)
+
+---
+<div style="text-align: left; font-size: 3em; line-height: 1.1em">
+  <span class="blushing-salmon">A</span>pplication<br/>
+  <span class="fragment" data-fragment-index=0><span class="toy-store-blue">P</span>rogramming<br/></span>
+  <span class="fragment" data-fragment-index=1><span class="golden">I</span>nterface</span>
+</div>
+
+---
+
+# Common Language
+
+A <span class="blushing-salmon">consistent</span> way for <span class="toy-store-blue">two software systems</span> to <span class="golden">communicate</span>.
+
+---
+
+# Stable Platform
+
+A <span class="blushing-salmon">guarantee</span> that the <span class="toy-store-blue">language</span> will not <span class="golden">change</span> without notice.
+    
+---
+
+# Contract
+
+An API is a <span class="blushing-salmon">contract</span> between a <span class="toy-store-blue">provider</span> and a <span class="golden">consumer</span>.
+
+===
+
+# Why are APIs important?
+
+![APIs](../../img/Gear.png)
+
+---
+
+## Open data is messy
+
+<pre>
+C00000042|ILLINOIS TOOL WORKS FOR BETTER GOVERNMENT COMMITTEE|Michael J. Lynch|3600 W. Lake Avenue||Glenview|IL|60025|U|Q||Q|C|ILLINOIS TOOL WORKS INC|
+C00000059|HALLMARK CARDS PAC|Swarens, Greg|2501 McGee|MD #288|Kansas City|MO|64108|U|Q|UNK|M|C|HALLMARK CARDS INCORPORATED|
+C00000422|AMERICAN MEDICAL ASSOCIATION POLITICAL ACTION COMMITTEE|WALKER, KEVIN|25 MASSACHUSETTS AVENUE NW|SUITE 600|WASHINGTON|DC|20001|U|Q||M|M|AMERICAN MEDICAL ASSOCIATION|
+C00000489|D R I V E POLITICAL FUND, CHAPTER 886|RON COBB|3528 WEST RENO||OKLAHOMA CITY|OK|73107|U|Q||Q|L|TEAMSTERS LOCAL UNION 886|
+C00000547|KANSAS MEDICAL SOCIETY POLITICAL ACTION COMMITTEE|C. RICHARD BONEBRAKE, M.D.|623 SW 10TH AVE||TOPEKA|KS|66612|U|Q|UNK|Q|T|MEDICAL ASS'N; KANSAS          [AMPAC]|
+C00000638|INDIANA STATE MEDICAL ASSOCIATION POLITICAL ACTION COMMITTEE|Kora, M.D., Vidya|322 Canal Walk, Canal Level|.|Indianapolis|IN|46202|U|Q||Q|M|Indiana State Medical Association|
+C00000729|AMERICAN DENTAL POLITICAL ACTION CMTE.|Triftshauser, Roger W|1111 14th Street NW|Suite 1100|Washington|DC|20005|U|Q|UNK|M|T|DENTAL ASS'N; AMERICAN|
+</pre>
+
+Courtesy of <a href="ftp://ftp.fec.gov">ftp.fec.gov</a>
+    
+---
+    
+## A downloaded dataset is a stale dataset
+
+![Clock](../../img/Alarm_clock.tif.png)
+
+---
+
+## Developers don’t want to manage custom datastores
+
+![Hockey Puck](../../img/Database.tif.png)
+
+---
+
+## You want apps to be easily portable
+
+![Rocket](../../img/Rocket.tif.png)
+
 ===
 
 # The Socrata Open Data APIs
