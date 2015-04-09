@@ -1,6 +1,6 @@
 ## 2015 Space Apps NYC
 ## Intro to NASA Open Data APIs
-![Socrata](img/snu-dev.png)
+![Socrata](img/snu-astronaut.png)
 ===
 
 <h1>Who the heck<br />are you?</h1>
