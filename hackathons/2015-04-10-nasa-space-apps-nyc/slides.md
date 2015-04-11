@@ -33,6 +33,7 @@
 ![APIs](../../img/Bubble_blue.tif.png)
 
 ---
+
 <div style="text-align: left; font-size: 3em; line-height: 1.1em">
   <span class="blushing-salmon">A</span>pplication<br/>
   <span class="fragment" data-fragment-index=0><span class="toy-store-blue">P</span>rogramming<br/></span>
@@ -68,16 +69,30 @@ An API is a <span class="blushing-salmon">contract</span> between a <span class=
 ## Open data is messy
 
 <pre>
-C00000042|ILLINOIS TOOL WORKS FOR BETTER GOVERNMENT COMMITTEE|Michael J. Lynch|3600 W. Lake Avenue||Glenview|IL|60025|U|Q||Q|C|ILLINOIS TOOL WORKS INC|
-C00000059|HALLMARK CARDS PAC|Swarens, Greg|2501 McGee|MD #288|Kansas City|MO|64108|U|Q|UNK|M|C|HALLMARK CARDS INCORPORATED|
-C00000422|AMERICAN MEDICAL ASSOCIATION POLITICAL ACTION COMMITTEE|WALKER, KEVIN|25 MASSACHUSETTS AVENUE NW|SUITE 600|WASHINGTON|DC|20001|U|Q||M|M|AMERICAN MEDICAL ASSOCIATION|
-C00000489|D R I V E POLITICAL FUND, CHAPTER 886|RON COBB|3528 WEST RENO||OKLAHOMA CITY|OK|73107|U|Q||Q|L|TEAMSTERS LOCAL UNION 886|
-C00000547|KANSAS MEDICAL SOCIETY POLITICAL ACTION COMMITTEE|C. RICHARD BONEBRAKE, M.D.|623 SW 10TH AVE||TOPEKA|KS|66612|U|Q|UNK|Q|T|MEDICAL ASS'N; KANSAS          [AMPAC]|
-C00000638|INDIANA STATE MEDICAL ASSOCIATION POLITICAL ACTION COMMITTEE|Kora, M.D., Vidya|322 Canal Walk, Canal Level|.|Indianapolis|IN|46202|U|Q||Q|M|Indiana State Medical Association|
-C00000729|AMERICAN DENTAL POLITICAL ACTION CMTE.|Triftshauser, Roger W|1111 14th Street NW|Suite 1100|Washington|DC|20005|U|Q|UNK|M|T|DENTAL ASS'N; AMERICAN|
+datavar 0 colorb_v
+datavar 1 lum
+datavar 2 absmag
+datavar 3 appmag
+datavar 4 texnum
+datavar 5 distly
+datavar 6 dcalc
+datavar 7 plx
+datavar 8 plxerr
+datavar 9 vx
+datavar 10 vy
+datavar 11 vz
+datavar 12 speed
+datavar 13 hipnum
+texturevar 4
+texture -M 1 halo.sgi
+    0.0000     0.0000     0.0000     0.650      0.89130      4.85    -26.72     1       0.00    0      0.000      0.00      0.000      0.000      0.000      0.000       0 # Sun
+  -18.1007   143.5620  -242.6120     0.396     14.19036      1.85      9.10     1     920.90    1      3.540     39.27      0.000      0.000      0.000      0.000       1 # HIP1 HD224700 Gli  
+    5.0098     9.8817   -44.2976     1.038      0.31704      5.97      9.27     1     148.86    1     21.900     14.16      0.000      0.000      0.000      0.000       2 # HIP2 HD224690 Gli  
+ -123.2580   303.6977  -138.6362    -0.005    223.14508     -1.15      6.61     1    1160.14    1      2.810     22.42      0.000      0.000      0.000      0.000       3 # HIP3 HD224699 Gli  
+  -50.4801   149.0259  -112.4977     1.822      6.96657      2.62      9.05     1     630.56    1      5.170     37.72     -6.247    -32.276      9.713     34.280       8 # HIP8 HD224709 Gli  
 </pre>
 
-Courtesy of <a href="ftp://ftp.fec.gov">ftp.fec.gov</a>
+from research.amnh.org
     
 ---
     
@@ -116,41 +131,87 @@ Clean water mapping, forest monitor mapping, airburst data visualization,  trans
 
 ---
 
-## API Endpoints
-
-Format:
-
-<code>https://<span class="greenery">$domain</span>/<span class="toy-store-blue">resource</span>/<span class="golden">$identifier</span>.<span class="blushing-salmon">ext</span></code>
-
----
-
 ### In the Data Catalog
 
 ![API Sidebar](img/nasa-soda-sidebar.gif)
 
 ---
 
+## API Endpoints
+
+<br />
+<code style='font-size:120%;'>https://<span class="greenery">$domain</span>/resource/<span class="golden">$identifier</span>.<span class="blushing-salmon">$ext</span></code>
+
+<br />
+
+<p style='text-align: left; margin-left:50px;'><em>Where:</em></p>
+
+- <code><span class="greenery">$domain</span></code> is the publisher's domain (ex: <code>data.nasa.gov</code>)
+- <code><span class="golden">$identifier</span></code> is a dataset's unique ID (ex: <code>gh4g-9sfh</code>)
+- <code><span class="blushing-salmon">$ext</span></code> is <code>json</code>, <code>csv</code>, <code>xml</code>, or <code>rdf</code>
+
+
+---
+
+## Example: Meteorite Landings
+
+<a target='blank' style='color:#FFF !important' href='https://data.nasa.gov/resource/gh4g-9sfh.json'><code style=''>https://<span class="greenery">data.nasa.gov</span>/resource/<span class="golden">gh4g-9sfh</span>.<span class="blushing-salmon">json</span></code></a>
+
+<pre>
+  <code data-trim contenteditable class="javascript">
+[
+  {                           // result one
+    "mass": "21",
+    "nametype": "Valid",
+    "geolocation": {
+      "longitude": "6.08333",
+      "latitude": "50.775"
+    },
+    "recclass": "L5",
+    "fall": "Fell",
+    "name": "Aachen",
+    "year": "1880-01-01T00:00:00"
+  },
+  {                           // result two
+    "mass": "720",
+    "nametype": "Valid",
+    "geolocation": {
+      "longitude": "10.23333",
+      "latitude": "56.18333"
+    },
+    "recclass": "H6",
+    "fall": "Fell",
+    "name": "Aarhus",
+    "year": "1951-01-01T00:00:00"
+  }, ...                      // and so on
+]
+  </code>
+</pre>
+
+---
+
 ## Simple Filters
 
-<code>http://data.nasa.gov/resource/b67r-rgxc.json?<code>
-<code><span class="toy-store-blue">object_name</span>=<span class="golden">263P/Gibbs</span></code>
+<a target='blank' style='color:#FFF !important' href='https://data.nasa.gov/resource/gh4g-9sfh.json?name=Independence'><code style=''>https://<span class="greenery">data.nasa.gov</span>/resource/<span class="golden">gh4g-9sfh</span>.<span class="blushing-salmon">json</span>
+<br />?<span class="toy-store-blue">name</span>=<span style="color:MediumOrchid">Independence</span></code></a>
 
 <pre><code data-trim contenteditable class="javascript">
 [
   {
-    "object": "263P/Gibbs",
-    "object_name": "263P/Gibbs",
-    "e": "0.5869803961",
-    "w_deg": "26.31548584",
-    "moid_au": "0.284398",
-    "epoch_tdb": "54246",
-    "q_au_2": "4.81",
-    "q_au_1": "1.251302076",
-    "tp_tdb": "2454098.266",
-    "ref": "15",
-    "p_yr": "5.27",
-    "i_deg": "14.4711765",
-    "node_deg": "113.3508576"
+    "id": "12028",
+    "mass": "880",
+    "nametype": "Valid",
+    "geolocation": {
+      "needs_recoding": false,
+      "longitude": "-94.4",
+      "latitude": "39.08333"
+    },
+    "recclass": "L6",
+    "fall": "Fell",
+    "name": "Independence",
+    "year": "1917-01-01T00:00:00",
+    "reclong": "-94.400000",
+    "reclat": "39.083330"
   }
 ]
 </code></pre>
@@ -170,28 +231,30 @@ Format:
 
 ## Aggregating Data
 
-<code>http://data.nasa.gov/resource/b67r-rgxc.json?<code>
-<code>
-<span class="toy-store-blue">$select</span>=<span class="golden">e,count(e)</span><br/>&amp;<span class="toy-store-blue">$group</span>=<span class="golden">e</span><br/>&amp;<span class="toy-store-blue">$order</span>=<span class="golden">count_e DESC</span>
-</code>
+<a target='blank' style='color:#FFF !important' href='https://data.nasa.gov/resource/gh4g-9sfh.json?$select=year,count(year)&$group=year&$order=count_year+desc'><code style=''>https://<span class="greenery">data.nasa.gov</span>/resource/<span class="golden">gh4g-9sfh</span>.<span class="blushing-salmon">json</span>
+<br />?<span class="toy-store-blue">$select</span>=<span style="color:MediumOrchid">year,count(year)</span>&<span class="toy-store-blue">$group</span>=<span style="color:MediumOrchid">year</span><br />&<span class="toy-store-blue">$order</span>=<span style="color:MediumOrchid">count_year DESC</span></code></a>
 
 <pre><code data-trim contenteditable class="javascript">
-[
+  [
   {
-    "count_e": "7",
-    "e": "0.6933582332"
+    "count_year": "3323",
+    "year": "2003-01-01T00:00:00"
   },
   {
-    "count_e": "4",
-    "e": "0.6824392137"
+    "count_year": "3046",
+    "year": "1979-01-01T00:00:00"
   },
   {
-    "count_e": "2",
-    "e": "0.6824329214"
+    "count_year": "2697",
+    "year": "1998-01-01T00:00:00"
   },
   {
-    "count_e": "1",
-    "e": "0.9671429085"
+    "count_year": "2456",
+    "year": "2006-01-01T00:00:00"
+  },
+  {
+    "count_year": "2296",
+    "year": "1988-01-01T00:00:00"
   }, ...
 ]
 </code></pre>
@@ -200,17 +263,14 @@ Format:
 
 ## Paging Through Data
 
-<code contenteditable>
-/resource/abcd-1234.json?<br/>
-<span class="toy-store-blue">$limit</span>=<span class="golden">50</span><br/>
-&amp;<span class="toy-store-blue">$offset</span>=<span class="golden">100</span>
-</code>
+<a target='blank' style='color:#FFF !important' href='https://data.nasa.gov/resource/gh4g-9sfh.json?$limit=50&$offset=100'><code style=''>https://<span class="greenery">data.nasa.gov</span>/resource/<span class="golden">gh4g-9sfh</span>.<span class="blushing-salmon">json</span>
+<br />?<span class="toy-store-blue">$limit</span>=<span style="color:MediumOrchid">50</span>&<span class="toy-store-blue">$offset</span>=<span style="color:MediumOrchid">100</span></code></a>
 
 ---
 
 ## Application Tokens
 
-1. Register at [http://dev.socrata.com/register](http://dev.socrata.com/register)
+1. Register at [https://data.nasa.gov/profile/app_tokens](https://data.nasa.gov/profile/app_tokens)
 2. Include as:
   - <code><span class="toy-store-blue">X-App-Token</span>: <span class="golden">$token</span></code> HTTP Header or ... 
   - The <code><span class="toy-store-blue">$$app_token</span>=<span class="golden">$token</span></code> URL parameter
