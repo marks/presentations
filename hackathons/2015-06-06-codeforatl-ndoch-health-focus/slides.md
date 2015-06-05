@@ -99,7 +99,7 @@
 
 ## Simple Filters
 
-<a target='blank' style='color:#FFF !important' href='https://chronicdata.cdc.gov/resource/ag3f-urcg.json??locationabbr=GA&year=2015&measuredesc=Bars'><code style=''>https://<span class="greenery">chronicdata.cdc.gov</span>/resource/<span class="golden">ag3f-urcg</span>.<span class="blushing-salmon">json</span>
+<a target='blank' style='color:#FFF !important' href='https://chronicdata.cdc.gov/resource/ag3f-urcg.json?locationabbr=GA&year=2015&measuredesc=Bars'><code style=''>https://<span class="greenery">chronicdata.cdc.gov</span>/resource/<span class="golden">ag3f-urcg</span>.<span class="blushing-salmon">json</span>
 <br />?<span class="toy-store-blue">locationabbr</span>=<span style="color:MediumOrchid">GA</span>&<span class="toy-store-blue">year</span>=<span style="color:MediumOrchid">2015</span>&<span class="toy-store-blue">measuredesc</span>=<span style="color:MediumOrchid">bars</span>
 </code></a>
 
@@ -132,8 +132,10 @@
 ## SoQL Queries
 
 <code>
-/resource/abcd-1234.json?<br/>
-<span class="toy-store-blue">$where</span>=<span class="golden">kwh &gt; 80000</span>
+/resource/ag3f-urcg.json?<br/>
+<span class="toy-store-blue">$where</span>=<span class="golden">enacted_date
+<br />between '2015-01-01T00:00:00.000'
+<br />and '2016-01-01T00:00:00.000'</span>
 </code>
 
 <small style="padding-top: 5em">For more details see <a href="http://dev.socrata.com">dev.socrata.com</a></small>
@@ -142,20 +144,33 @@
 
 ## Aggregating Data
 
-<code>
-/resource/abcd-1234.json?<br/>
-<span class="toy-store-blue">$select</span>=<span class="golden">source, sum(kwh)</span><br>
-&amp;<span class="toy-store-blue">$group</span>=<span class="golden">source</span>
-</code>
+<a target='blank' style='color:#FFF !important' href='https://chronicdata.cdc.gov/resource/ag3f-urcg.json?year=2015&provisiondesc=Maximum%20Penalty%20($)&$select=locationabbr,max(provisionaltvalue)&$group=locationabbr&$order=max_provisionaltvalue%20desc'><code style=''>https://<span class="greenery">chronicdata.cdc.gov</span>/resource/<span class="golden">ag3f-urcg</span>.<span class="blushing-salmon">json</span>
+<span style='font-size: 90%;'><br />?<span class="toy-store-blue">year</span>=<span style="color:MediumOrchid">2015</span>&<span class="toy-store-blue">provisiondesc</span>=<span style="color:MediumOrchid">Maximum Penalty ($)</span>
+<br />
+&<span class="toy-store-blue">$select</span>=<span style="color:MediumOrchid">locationabbr,max(provisionaltvalue)</span>
+<br />
+&<span class="toy-store-blue">$group</span>=<span style="color:MediumOrchid">locationabbr</span>&<span class="toy-store-blue">$order</span>=<span style="color:MediumOrchid">max_provisionaltvalue desc</span></span>
+</code></a>
 
 <pre><code data-trim contenteditable class="javascript">
-[ {
-  "source" : "ConEd",
-  "sum_kwh" : "49469570957"
-}, {
-  "source" : "Long Island Power Authority",
-  "sum_kwh" : "445333629"
-}, ... ]
+[
+  {
+    "locationabbr": "NY",
+    "max_provisionaltvalue": "2000"
+  },
+  {
+    "locationabbr": "ME",
+    "max_provisionaltvalue": "1500"
+  },
+  {
+    "locationabbr": "ND",
+    "max_provisionaltvalue": "1500"
+  }, // ... snip ...
+  {
+    "locationabbr": "GA",
+    "max_provisionaltvalue": "500"
+  }, // ... snip ...
+]
 </code></pre>
 
 ---
