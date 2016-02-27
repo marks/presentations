@@ -39,7 +39,7 @@
 
 ### [celebratingcities.data.socrata.com](https://celebratingcities.data.socrata.com/)
 
-![SODA](img/celebratingcities.png)
+![Socrata Open Data Portal search and results](img/celebratingcities.png)
 
 ---
 
@@ -47,13 +47,13 @@
 
 ### [opendatanetwork.com](https://www.opendatanetwork.com/)
 
-![SODA](img/opendatanetwork.png)
+![Open Data Network search and results](img/opendatanetwork.png)
 
 ---
 
 ### Getting to the good stuff (data)
 
-![API Sidebar](img/datadatadata.png)
+![Data views](img/datadatadata.png)
 
 ---
 
@@ -78,31 +78,33 @@
 
 ---
 
-### Example: Tobacco Legislation by State
+### Example: Head Start Locations
 
-<a target='blank' style='color:#FFF !important' href='https://chronicdata.cdc.gov/resource/ag3f-urcg.json'><code style=''>https://<span class="greenery">chronicdata.cdc.gov</span>/resource/<span class="golden">ag3f-urcg</span>.<span class="blushing-salmon">json</span></code></a>
+<a target='blank' style='color:#FFF !important' href='https://celebratingcities.data.socrata.com/resource/8qxj-ircv.json'><code style=''>https://<span class="greenery">celebratingcities.data.socrata.com</span><br />/resource/<span class="golden">8qxj-ircv</span>.<span class="blushing-salmon">json</span></code></a>
 
 <pre>
   <code data-trim contenteditable class="javascript">
 [
   { // first result
-    "locationabbr": "AL",
-    "locationdesc": "Alabama",
-    "provisiondesc": "Minimum Penalty ($)",
-    "measuredesc": "Bars",
-    "provisiongroupdesc": "Penalties",
-    "provisionvalue": "No Provision",
-    "provisionaltvalue": "0",
-    "geolocation": {
-      "type": "Point",
-      "coordinates": [
-        -83.62758034599966,
-        32.83968109300048
-      ]
+    "name": "Big Mama's",
+    "centertype": "Early Head Start",
+    "delegateno": "200",
+    "grantnumbe": "03HP0017",
+    "location": {
+    "type": "Point",
+      "coordinates": [ -77.010447, 38.821247 ]
     },
-    "provisiongroupid": "60GRP",
-    "year": "2015",
-    "quarter": "1"
+    "location_address": "4680 Martin Luther King Jr Ave SW",
+    "location_city": "Washington",
+    "location_state": "DC",
+    "location_zip": "20032-1132",
+    "programadd": "810 First Street, NE 9th Floor",
+    "programcit": "Washington",
+    "programdel": "Office of the State Superintendent of Education",
+    "programsta": "DC",
+    "programtyp": "Early Head Start",
+    "programzip": "20002-4227",
+    "grantee": "Office of the State Superintendent of Education\n810 First Street, NE\n9th Floor\nWashington, DC 20002-4227\n(202)741-7632 - \n"
   }, // ... more results ...
 ]
   </code>
@@ -113,30 +115,33 @@
 
 ## Simple Filters
 
-<a target='blank' style='color:#FFF !important' href='https://chronicdata.cdc.gov/resource/ag3f-urcg.json?locationabbr=GA&year=2015&measuredesc=Bars'><code style=''>https://<span class="greenery">chronicdata.cdc.gov</span>/resource/<span class="golden">ag3f-urcg</span>.<span class="blushing-salmon">json</span>
-<br />?<span class="toy-store-blue">locationabbr</span>=<span style="color:MediumOrchid">GA</span>&<span class="toy-store-blue">year</span>=<span style="color:MediumOrchid">2015</span>&<span class="toy-store-blue">measuredesc</span>=<span style="color:MediumOrchid">bars</span>
+<a target='blank' style='color:#FFF !important' href='https://celebratingcities.data.socrata.com/resource/8qxj-ircv.json?centertype=Migrant+and+Seasonal+Head+Start'><code style=''>https://<span class="greenery">celebratingcities.data.socrata.com</span><br />/resource/<span class="golden">8qxj-ircv</span>.<span class="blushing-salmon">json</span>
+<br />?<span class="toy-store-blue">centertype</span>=<span style="color:MediumOrchid">Migrant+and+Seasonal+Head+Start
 </code></a>
 
 <pre><code data-trim contenteditable class="javascript">
 [
   {
-    "datatype": "Yes/No",
-    "provisionvalue": "Yes",
-    "effective_date": "2005-07-01T00:00:00.000",
-    "enacted_date": "2005-05-09T00:00:00.000",
-    "citation": "GA. CODE ANN. § 31-12A-10",
-    "geolocation": {
+    "name": "Parksley Migrant Head Start",
+    "centertype": "Migrant and Seasonal Head Start",
+    "delegateno": "1",
+    "grantnumbe": "90CM9796",
+    "location": {
       "type": "Point",
-      "coordinates": [
-        -83.62758034599966,
-        32.83968109300048
-      ]
+      "coordinates": [ -75.604929, 37.789462 ]
     },
-    "locationabbr": "GA",
-    "locationdesc": "Georgia",
-    "measuredesc": "Bars",
-    "year": "2015"
-    "quarter": "1"
+    "location_address": "20344 Lankford Hwy P.O. Box 497",
+    "location_city": "Parksley",
+    "location_state": "VA",
+    "location_zip": "23421-3746",
+    "phone": "(757) 665-4976",
+    "programadd": "1214 West Graham Road, Suite 3",
+    "programcit": "Richmond",
+    "programdel": "Rural Family Development",
+    "programsta": "VA",
+    "programtyp": "Migrant and Seasonal Head Start",
+    "programzip": "23220-1400",
+    "grantee": "Rural Family Development\n1214 West Graham Road, Suite 3\nRichmond, VA 23220-1400\n(757)709-4817 - \n"
   }, // ... more results ...
 ]
 </code></pre>
@@ -145,12 +150,11 @@
 
 ## SoQL Queries
 
-<code>
-/resource/ag3f-urcg.json?<br/>
-<span class="toy-store-blue">$where</span>=<span class="golden">enacted_date
-<br />between '2015-01-01T00:00:00.000'
-<br />and '2016-01-01T00:00:00.000'</span>
-</code>
+<a href='https://celebratingcities.data.socrata.com/resource/8qxj-ircv.json?$where=programsta%20IN%20(%27DC%27,%27MD%27)'>
+
+<a target='blank' style='color:#FFF !important' href='https://celebratingcities.data.socrata.com/resource/8qxj-ircv.json?$where=programsta%20IN%20(%27DC%27,%27MD%27)%20AND%20delegateno%20BETWEEN%200%20and%20200'><code style=''>https://<span class="greenery">celebratingcities.data.socrata.com</span><br />/resource/<span class="golden">8qxj-ircv</span>.<span class="blushing-salmon">json</span>?<span class="toy-store-blue">$where=</span>
+<br /><br /></span>programsta IN ('DC','MD')<br />AND<br />delegateno BETWEEN 0 and 200
+</code></a>
 
 <small style="padding-top: 5em">For more details see <a href="http://dev.socrata.com">dev.socrata.com</a></small>
 
@@ -158,32 +162,25 @@
 
 ## Aggregating Data
 
-<a target='blank' style='color:#FFF !important' href='https://chronicdata.cdc.gov/resource/ag3f-urcg.json?year=2015&provisiondesc=Maximum%20Penalty%20($)&$select=locationabbr,max(provisionaltvalue)&$group=locationabbr&$order=max_provisionaltvalue%20desc'><code style=''>https://<span class="greenery">chronicdata.cdc.gov</span>/resource/<span class="golden">ag3f-urcg</span>.<span class="blushing-salmon">json</span>
-<span style='font-size: 90%;'><br />?<span class="toy-store-blue">year</span>=<span style="color:MediumOrchid">2015</span>&<span class="toy-store-blue">provisiondesc</span>=<span style="color:MediumOrchid">Maximum Penalty ($)</span>
+<a target='blank' style='color:#FFF !important' href='https://celebratingcities.data.socrata.com/resource/8qxj-ircv.json?$select=programtyp,count(*)&$group=programtyp&$order=count%20desc'><code style=''>https://<span class="greenery">celebratingcities.data.socrata.com</span><br />/resource/<span class="golden">8qxj-ircv</span>.<span class="blushing-salmon">json</span>?<span class="toy-store-blue">$select</span>=<span style="color:MediumOrchid">programtyp,count(*)</span>
 <br />
-&<span class="toy-store-blue">$select</span>=<span style="color:MediumOrchid">locationabbr,max(provisionaltvalue)</span>
-<br />
-&<span class="toy-store-blue">$group</span>=<span style="color:MediumOrchid">locationabbr</span>&<span class="toy-store-blue">$order</span>=<span style="color:MediumOrchid">max_provisionaltvalue desc</span></span>
+&<span class="toy-store-blue">$group</span>=<span style="color:MediumOrchid">programtyp</span>&<span class="toy-store-blue">$order</span>=<span style="color:MediumOrchid">count desc</span></span>
 </code></a>
 
 <pre><code data-trim contenteditable class="javascript">
 [
   {
-    "locationabbr": "NY",
-    "max_provisionaltvalue": "2000"
+    "count": "701",
+    "programtyp": "Head Start"
   },
   {
-    "locationabbr": "ME",
-    "max_provisionaltvalue": "1500"
+    "count": "166",
+    "programtyp": "Early Head Start"
   },
   {
-    "locationabbr": "ND",
-    "max_provisionaltvalue": "1500"
-  }, // ... snip ...
-  {
-    "locationabbr": "GA",
-    "max_provisionaltvalue": "500"
-  }, // ... snip ...
+    "count": "2",
+    "programtyp": "Migrant and Seasonal Head Start"
+  }
 ]
 </code></pre>
 
@@ -203,9 +200,9 @@
 
 1. Register at [http://dev.socrata.com/register](http://dev.socrata.com/register)
 2. Include as:
-  - `_X-App-Token_: _$token_` HTTP Header or ... 
-  - The `_$$app_token_=_$token_` URL parameter
-3. Profit!!! (from more API requests)
+  - `X-App-Token: $token` HTTP Header or ... 
+  - The `$$app_token = $token` URL parameter
+3. Hack the last mile!
 
 ===
 
@@ -239,11 +236,6 @@
 - IRC: [chat.freenode.net/#socrata-soda](irc://chat.freenode.net/#socrata-soda)
 - Stack Overflow: [soda](http://stackoverflow.com/questions/tagged/soda) or [socrata](http://stackoverflow.com/questions/tagged/socrata)
 
-===
-
-![Socrata Hearts Gov](/presentations/img/snuf-luv.png)
-
-[thank-a-govie.com](http://thank-a-govie.com)
 
 ===
 
